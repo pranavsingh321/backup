@@ -218,3 +218,13 @@ vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
 vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 vim.keymap.set("x", "<leader>p", [["_dP]])
+
+vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true, silent = true })
+
+vim.cmd([[highlight Pmenu guibg=#2aa198 guifg=#ffffff]])
+vim.cmd([[highlight PmenuSel guibg=#2aa198 guifg=#ffffff]])
+vim.cmd([[highlight PmenuSbar guibg=#2aa198]])
+vim.cmd([[highlight PmenuThumb guibg=#ffffff]])
