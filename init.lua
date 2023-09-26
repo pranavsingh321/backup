@@ -63,8 +63,15 @@ require("packer").startup(function(use)
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
+  -- Flutter setup
+  use('dart-lang/dart-vim-plugin')
+  use('thosakwe/vim-flutter')
+  use('natebosch/vim-lsc')
+  use('natebosch/vim-lsc-dart')
 end)
 
+-- Set the LSP server command for Dart
+vim.g.lsc_server_commands = { dart = 'dart_language_server' }
 
 -- Set completeopt to have a better completion experience
 -- :help completeopt
