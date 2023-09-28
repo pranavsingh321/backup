@@ -37,7 +37,7 @@ require("packer").startup(function(use)
     end
   })
 
-  use("windwp/nvim-autopairs)
+  use("windwp/nvim-autopairs")
   -- Autocompletion framework
   use("hrsh7th/nvim-cmp")
   use({
@@ -67,7 +67,7 @@ require("packer").startup(function(use)
 end)
 
 -- hack to make it run on start
-require("nvim-autopairs).setup()
+require("nvim-autopairs").setup()
 
 -- Set completeopt to have a better completion experience
 -- :help completeopt
