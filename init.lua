@@ -36,7 +36,7 @@ require("packer").startup(function(use)
       require("fidget").setup()
     end
   })
-
+  use("windwp/nvim-autopairs)
   -- Autocompletion framework
   use("hrsh7th/nvim-cmp")
   use({
@@ -69,7 +69,8 @@ require("packer").startup(function(use)
   use('natebosch/vim-lsc')
   use('natebosch/vim-lsc-dart')
 end)
-
+-- hack to make it run on start
+require("nvim-autopairs).setup()
 -- Set the LSP server command for Dart
 vim.g.lsc_server_commands = { dart = 'dart_language_server' }
 
