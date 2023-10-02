@@ -75,6 +75,8 @@ end)
 
 if vim.fn.has("mac") == 1 then
     require("nvim-autopairs").setup()
+    -- Set the LSP server command for Dart
+    vim.g.lsc_server_commands = { dart = 'dart_language_server' }
 end
 -- Set completeopt to have a better completion experience
 -- :help completeopt
@@ -82,8 +84,6 @@ end
 -- noinsert: Do not insert text until a selection is made
 -- noselect: Do not auto-select, nvim-cmp plugin will handle this for us.
 vim.o.completeopt = "menuone,noinsert,noselect"
--- Set the LSP server command for Dart
-vim.g.lsc_server_commands = { dart = 'dart_language_server' }
 
 -- Avoid showing extra messages when using completion
 vim.opt.shortmess = vim.opt.shortmess + "c"
