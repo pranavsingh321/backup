@@ -36,7 +36,7 @@ require("packer").startup(function(use)
       require("fidget").setup()
     end
   })
-  use("windwp/nvim-autopairs")
+  use ("windwp/nvim-autopairs")
   -- Autocompletion framework
   use("hrsh7th/nvim-cmp")
   use({
@@ -63,23 +63,27 @@ require("packer").startup(function(use)
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
-  -- Flutter setup
-  use('dart-lang/dart-vim-plugin')
-  use('thosakwe/vim-flutter')
-  use('natebosch/vim-lsc')
-  use('natebosch/vim-lsc-dart')
-end)
--- hack to make it run on start
-require("nvim-autopairs").setup()
--- Set the LSP server command for Dart
-vim.g.lsc_server_commands = { dart = 'dart_language_server' }
+  -- Check if the operating system is macOS and load additional plugins
+  if vim.fn.has("mac") == 1 then
+      use('dart-lang/dart-vim-plugin')
+      use('thosakwe/vim-flutter')
+      use('natebosch/vim-lsc')
+      use('natebosch/vim-lsc-dart')
+  end
 
+end)
+
+if vim.fn.has("mac") == 1 then
+    require("nvim-autopairs").setup()
+end
 -- Set completeopt to have a better completion experience
 -- :help completeopt
 -- menuone: popup even when there's only one match
 -- noinsert: Do not insert text until a selection is made
 -- noselect: Do not auto-select, nvim-cmp plugin will handle this for us.
 vim.o.completeopt = "menuone,noinsert,noselect"
+-- Set the LSP server command for Dart
+vim.g.lsc_server_commands = { dart = 'dart_language_server' }
 
 -- Avoid showing extra messages when using completion
 vim.opt.shortmess = vim.opt.shortmess + "c"
@@ -209,8 +213,10 @@ vim.opt.updatetime = 100
 
 -- undotree
 vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)
+
 -- vim-fugitive
 vim.keymap.set('n', '<leader>gs', vim.cmd.Git);
+
 -- harpoon
 local mark = require('harpoon.mark')
 local ui = require('harpoon.ui')
