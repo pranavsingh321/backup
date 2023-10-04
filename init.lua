@@ -73,8 +73,9 @@ require("packer").startup(function(use)
 
 end)
 
+require("nvim-autopairs").setup()
+
 if vim.fn.has("mac") == 1 then
-    require("nvim-autopairs").setup()
     -- Set the LSP server command for Dart
     vim.g.lsc_server_commands = { dart = 'dart_language_server' }
 end
