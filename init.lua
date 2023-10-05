@@ -166,6 +166,9 @@ cmp.setup({
   },
 })
 
+vim.cmd[[
+  autocmd BufWritePre * %s/\s\+$//e
+]]
 
 -- Show diagnostic popup on cursor hover
 local diag_float_grp = vim.api.nvim_create_augroup("DiagnosticFloat", { clear = true })
