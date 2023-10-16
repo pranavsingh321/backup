@@ -246,5 +246,8 @@ vim.cmd([[highlight Pmenu guibg=#2aa198 guifg=#ffffff]])
 vim.cmd([[highlight PmenuSel guibg=#2aa198 guifg=#ffffff]])
 vim.cmd([[highlight PmenuSbar guibg=#2aa198]])
 vim.cmd([[highlight PmenuThumb guibg=#ffffff]])
+
+-- highlight
 vim.cmd('set hlsearch')
+vim.cmd('highlight Search guibg=LightYellow ctermbg=187')
 vim.api.nvim_set_keymap('n', '<Leader>/', ':nohlsearch<CR>', { noremap = true, silent = true })
