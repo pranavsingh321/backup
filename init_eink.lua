@@ -156,6 +156,11 @@ cmp.setup({
   },
 })
 
+-- remove trailing spaces
+vim.cmd[[
+  autocmd BufWritePre * %s/\s\+$//e
+]]
+
 
 -- Show diagnostic popup on cursor hover
 local diag_float_grp = vim.api.nvim_create_augroup("DiagnosticFloat", { clear = true })
@@ -232,3 +237,8 @@ vim.cmd([[highlight PmenuSel guibg=#8affd9 guifg=#ffffff]])
 vim.cmd([[highlight PmenuSbar guibg=#8affd9]])
 vim.cmd([[highlight PmenuThumb guibg=#ffffff]])
 --vim.cmd('highlight DiffChange ctermfg=0 ctermbg=334 guifg=#000000 guibg=#FFFF00')
+
+-- highlight
+vim.cmd('set hlsearch')
+vim.cmd('highlight Search guibg=Green')
+vim.api.nvim_set_keymap('n', '<Leader>/', ':nohlsearch<CR>', { noremap = true, silent = true })

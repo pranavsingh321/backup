@@ -36,7 +36,8 @@ require("packer").startup(function(use)
       require("fidget").setup()
     end
   })
-  use ("windwp/nvim-autopairs")
+
+  use("windwp/nvim-autopairs")
   -- Autocompletion framework
   use("hrsh7th/nvim-cmp")
   use({
@@ -166,9 +167,11 @@ cmp.setup({
   },
 })
 
+-- remove trailing spaces
 vim.cmd[[
   autocmd BufWritePre * %s/\s\+$//e
 ]]
+
 
 -- Show diagnostic popup on cursor hover
 local diag_float_grp = vim.api.nvim_create_augroup("DiagnosticFloat", { clear = true })
